@@ -11,9 +11,9 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/netlify": "^3.0.0",
+    "astro": "^5.15.6",
+    "@astrojs/netlify": "^4.0.0",
     "@astrojs/tailwind": "^5.0.0",
-    "astro": "^5.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
