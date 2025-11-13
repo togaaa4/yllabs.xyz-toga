@@ -1,19 +1,8 @@
-// @ts-check
-import { defineConfig } from "astro/config";
-
-import tailwind from "@astrojs/tailwind";
-
-import cloudflare from "@astrojs/cloudflare";
-
-import react from "@astrojs/react";
+import { defineConfig } from 'astro/config';
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react()],
-  output: "server",
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true 
-    }
-  }),
+  output: 'static',  // Important: produce static files
+  adapter: netlify(), // Use Netlify adapter
 });
