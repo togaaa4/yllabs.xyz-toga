@@ -17,6 +17,10 @@
   },
   "devDependencies": {
     "@types/node": "^20.6.1",
-    "typescript": "^5.3.0"
+    "typescript": "^5.3.0",
+    "mini-svg-data-uri": "^1.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
