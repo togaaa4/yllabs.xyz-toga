@@ -1,10 +1,12 @@
 import { defineConfig } from "astro/config";
 import netlify from "@astrojs/netlify";
 
-// https://astro.build/config
 export default defineConfig({
-  output: "static", // static site for Netlify
+  output: "static",
   adapter: netlify(),
+  site: "https://toga.yllabs.xyz",
+  base: "/",
+  integrations: [],
   vite: {
     optimizeDeps: {
       include: []
