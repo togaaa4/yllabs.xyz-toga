@@ -1,8 +1,7 @@
 import { defineConfig } from 'astro/config';
-import netlify from '@astrojs/netlify';
+import netlifyEdge from '@astrojs/netlify-edge';
 
-// https://astro.build/config
 export default defineConfig({
-  output: 'static',  // Important: produce static files
-  adapter: netlify(), // Use Netlify adapter
+  output: 'server', // edge server build
+  adapter: netlifyEdge(),
 });
