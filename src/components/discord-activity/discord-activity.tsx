@@ -37,10 +37,7 @@ export default function DiscordActivity() {
       }
     };
 
-    ws.onerror = () => {
-      setConnected(false);
-    };
-
+    ws.onerror = () => setConnected(false);
     return () => ws.close();
   }, []);
 
@@ -85,16 +82,12 @@ export default function DiscordActivity() {
                 alt="Discord Avatar"
               />
               <span
-                className={`absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 border-white dark:border-black ${
-                  statusColors[data.discord_status]
-                }`}
+                className={`absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 border-white dark:border-black ${statusColors[data.discord_status]}`}
               ></span>
             </div>
             <div>
               <h2 className="text-lg font-semibold text-white">My Discord Presence</h2>
-              <p className="text-sm text-gray-300 capitalize">
-                Status: {data.discord_status}
-              </p>
+              <p className="text-sm text-gray-300 capitalize">Status: {data.discord_status}</p>
             </div>
           </div>
 
