@@ -14,8 +14,8 @@ import ElementGlow from "../ui/element-glow.astro";
     Current Activity
   </h3>
 
-  <!-- React DiscordActivity -->
-  <DiscordActivity client:only="react" />
+  <!-- React DiscordActivity hydrated on page load -->
+  <DiscordActivity client:load />
 
   <!-- Glow effect -->
   <ElementGlow class="animate-pulse-slow" />
