@@ -1,6 +1,5 @@
 ---
 import { ClientRouter } from "astro:transitions";
-// Removed invalid import "non.geist/mono"
 ---
 
 <!DOCTYPE html>
@@ -9,11 +8,16 @@ import { ClientRouter } from "astro:transitions";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>yllabs.toga</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    />
   </head>
-  <body class="font-sans">
+  <body class="font-sans bg-gray-50 dark:bg-black text-gray-900 dark:text-white">
     <ClientRouter>
-      <slot />
+      <main class="max-w-7xl mx-auto p-4">
+        <slot />
+      </main>
     </ClientRouter>
   </body>
 </html>
