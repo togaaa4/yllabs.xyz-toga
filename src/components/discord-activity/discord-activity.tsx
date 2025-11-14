@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const DISCORD_USER_ID = "YOUR_DISCORD_ID";
+const DISCORD_USER_ID = "1437013692440121414";
 
 type LanyardData = {
   discord_status: string;
