@@ -23,9 +23,7 @@ export default function DiscordActivity() {
       ws.send(
         JSON.stringify({
           op: 2,
-          d: {
-            subscribe_to_id: DISCORD_USER_ID,
-          },
+          d: { subscribe_to_id: DISCORD_USER_ID },
         })
       );
     };
@@ -51,27 +49,28 @@ export default function DiscordActivity() {
     offline: "bg-gray-500",
   };
 
-  const currentActivity = data.activities.find(
-    (act) => act.type === 0 // "Playing"
-  );
+  const currentActivity = data.activities.find((act) => act.type === 0);
+
+  const avatarHash = data.kv?.avatar || "default_avatar_hash";
 
   return (
-    <div className="w-full max-w-sm p-4 bg-neutral-900 rounded-xl shadow-xl border border-neutral-700">
+    <div className="w-full p-4 bg-white/10 dark:bg-black/20 border border-white/10 dark:border-black/10 rounded-xl shadow-lg backdrop-blur-md">
       <div className="flex items-center gap-4 mb-4">
         <div className="relative">
           <img
-            src={`https://cdn.discordapp.com/avatars/${DISCORD_USER_ID}/${data.kv?.avatar || ""}.png?size=256`}
+            src={`https://cdn.discordapp.com/avatars/${DISCORD_USER_ID}/${avatarHash}.png?size=256`}
             className="w-16 h-16 rounded-full"
+            alt="Discord Avatar"
           />
           <span
-            className={`absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 border-neutral-900 ${
+            className={`absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 border-white dark:border-black ${
               statusColors[data.discord_status]
             }`}
           ></span>
         </div>
         <div>
-          <h2 className="text-lg font-semibold">My Discord Presence</h2>
-          <p className="text-sm text-gray-400 capitalize">
+          <h2 className="text-lg font-semibold text-white">My Discord Presence</h2>
+          <p className="text-sm text-gray-300 capitalize">
             Status: {data.discord_status}
           </p>
         </div>
@@ -79,18 +78,16 @@ export default function DiscordActivity() {
 
       {/* Custom Status */}
       {data.activities.some((a) => a.type === 4) && (
-        <div className="mb-3">
-          <p className="text-sm text-gray-300">
-            {data.activities.find((a) => a.type === 4)?.state}
-          </p>
+        <div className="mb-3 text-gray-200">
+          {data.activities.find((a) => a.type === 4)?.state}
         </div>
       )}
 
-      {/* Game / Activity */}
+      {/* Current Activity */}
       {currentActivity && (
         <div className="mb-3">
-          <h3 className="text-md font-semibold">Playing</h3>
-          <p className="text-gray-300">{currentActivity.name}</p>
+          <h3 className="text-md font-semibold text-white">Playing</h3>
+          <p className="text-gray-200">{currentActivity.name}</p>
         </div>
       )}
 
@@ -102,9 +99,10 @@ export default function DiscordActivity() {
             <img
               src={data.spotify.album_art_url}
               className="w-14 h-14 rounded-md"
+              alt="Album Art"
             />
             <div>
-              <p className="font-medium">{data.spotify.song}</p>
+              <p className="font-medium text-white">{data.spotify.song}</p>
               <p className="text-gray-300 text-sm">{data.spotify.artist}</p>
             </div>
           </div>
