@@ -7,7 +7,7 @@ export default defineConfig({
   adapter: netlify(),
   site: "https://toga.yllabs.xyz",
   base: "/",
-  integrations: [react], // Enable React
+  integrations: [react()], // Call the function
   vite: {
     optimizeDeps: {
       include: []
